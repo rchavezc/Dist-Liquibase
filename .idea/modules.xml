@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Liquibase Distribuido.iml" filepath="$PROJECT_DIR$/Liquibase Distribuido.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Dist-LiquidBase-Exc.iml" filepath="$PROJECT_DIR$/Dist-LiquidBase-Exc.iml" />
     </modules>
   </component>
 </project>
