@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DatabaseDataJAXBS>
+    <DatabaseData>
+        <DbName>dbName</DbName>
+        <DbServer>123.456.23.12</DbServer>
+        <DbPort>23234</DbPort>
+        <DbUser>root</DbUser>
+        <DbPass>toor</DbPass>
+        <Engine>MySql</Engine>
+    </DatabaseData>
+    <DatabaseData>
+        <DbName>otherName</DbName>
+        <DbServer>23.432.123.42</DbServer>
+        <DbPort>3455</DbPort>
+        <DbUser>root</DbUser>
+        <DbPass>toor</DbPass>
+        <Engine>MsSql</Engine>
+    </DatabaseData>
+</DatabaseDataJAXBS>

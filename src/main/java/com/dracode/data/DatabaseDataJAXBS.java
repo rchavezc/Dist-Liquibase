@@ -16,11 +16,11 @@ public class DatabaseDataJAXBS {
     @XmlElement(name = "DatabaseData")
     private DatabaseData[] databaseData;
 
-    public DatabaseData[] getDatabaseDataJAXBS() {
+    public DatabaseData[] getDatabaseData() {
         return databaseData;
     }
 
-    public void setDatabaseDataJAXBS(DatabaseData[] databaseDataJAXBS) {
+    public void setDatabaseData(DatabaseData[] databaseDataJAXBS) {
         this.databaseData = databaseDataJAXBS;
     }
 

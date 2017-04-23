@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import org.apache.commons.io.FilenameUtils;
 
 import java.io.File;
+import java.io.IOException;
 
 public class Controller {
 
@@ -22,7 +23,7 @@ public class Controller {
     }
 
     @FXML
-    void executor(){
+    void executor() throws IOException {
         Execution execution = new Execution();
 
         if (FilenameUtils.getExtension(file.getAbsolutePath()).equals("csv"))

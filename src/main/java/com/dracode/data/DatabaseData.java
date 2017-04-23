@@ -19,6 +19,7 @@ public class DatabaseData {
     private String
                 DbName,
                 DbServer,
+                DbPort,
                 DbUser,
                 DbPass;
 
@@ -44,6 +45,15 @@ public class DatabaseData {
 
     public String getDbUser() {
         return DbUser;
+    }
+
+    public String getDbPort() {
+        return DbPort;
+    }
+
+    @XmlElement(name = "DbPort")
+    public void setDbPort(String dbPort) {
+        DbPort = dbPort;
     }
 
     @XmlElement(name = "DbUser")

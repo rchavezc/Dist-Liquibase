@@ -3,6 +3,7 @@ package com.dracode.execution;
 import com.dracode.data.DatabaseData;
 import com.dracode.data.DatabaseDataJAXBS;
 import com.dracode.data.DbEngine;
+import com.dracode.export.LiquibasePropertiesExport;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -19,20 +20,26 @@ public class Execution {
     private List<DatabaseData> databaseData;
     private DatabaseDataJAXBS databaseDataJAXBS;
 
-    public void executeXML(String xmlFile){
+    public void executeXML(String xmlFile) throws IOException {
+
+        LiquibasePropertiesExport liquibasePropertiesExport = new LiquibasePropertiesExport();
+        Integer indx = 0;
+
         fillDatabaseDataJAXB(xmlFile);
-        //for (DatabaseDataJAXB databaseDataJAXB : databaseDataJAXBS){
-            System.out.println(databaseDataJAXBS.toString());
-        //}
+        for (DatabaseData dbd : databaseDataJAXBS.getDatabaseData()){
+            liquibasePropertiesExport.export(dbd, indx++);
+        }
     }
 
-    public void executeCSV(String csvFile){
+    public void executeCSV(String csvFile) throws IOException {
+        LiquibasePropertiesExport liquibasePropertiesExport = new LiquibasePropertiesExport();
         List<String[]> lines = readCSV(csvFile);
+        Integer indx = 0;
+
         fillDatabaseData(lines);
-        if (databaseData.get(0) != null)
-            System.out.println(databaseData.toString());
-        else
-            System.out.println("Null asjiasjn");
+        for (DatabaseData dbd : databaseData){
+            liquibasePropertiesExport.export(dbd, indx++);
+        }
     }
 
     private List<String[]> readCSV (String path) {
@@ -73,9 +80,10 @@ public class Execution {
             DatabaseData dbd = new DatabaseData();
             dbd.setDbName(line[0]);
             dbd.setDbServer(line[1]);
-            dbd.setDbUser(line[2]);
-            dbd.setDbPass(line[3]);
-            dbd.setEngine(DbEngine.valueOf(line[4]));
+            dbd.setDbPort(line[2]);
+            dbd.setDbUser(line[3]);
+            dbd.setDbPass(line[4]);
+            dbd.setEngine(DbEngine.valueOf(line[5]));
             databaseData.add(dbd);
         }
     }
